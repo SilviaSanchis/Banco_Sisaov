@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Banco_Sisaov</string>
+    <string name="icono_bienvenida">Icono bienvenida</string>
+    <string name="text_bienvenido_a">Bienvenido/a </string>
+    <string name="introduce_psw">Introduce la contraseña</string>
+    <string name="introduce_usuario">Introduce el usuario</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="txt_button_enter">Entrar</string>
+    <string name="txt_button_exit">Salir</string>
+    <string name="obligatorio">Obligatorio</string>
+    <string name="icono_del_banco">Icono del banco</string>
+</resources>
