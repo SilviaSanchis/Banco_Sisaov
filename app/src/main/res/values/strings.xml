@@ -9,4 +9,13 @@
     <string name="txt_button_exit">Salir</string>
     <string name="obligatorio">Obligatorio</string>
     <string name="icono_del_banco">Icono del banco</string>
+    <string name="imagen_fondo_welcome">Imagen fondo welcome</string>
+    <string name="bienvenido_a_a_mi_banco">Bienvenido/a a mi banco</string>
+    <string name="entrar">Entrar</string>
+    <string name="posicion_global">Posicion global</string>
+    <string name="movimientos">Movimientos</string>
+    <string name="transferencias">Transferencias</string>
+    <string name="cambiar_contrase_a">Cambiar contraseña</string>
+    <string name="promociones">Promociones</string>
+    <string name="cajeros">Cajeros</string>
 </resources>

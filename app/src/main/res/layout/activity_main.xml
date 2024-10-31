@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/MiEstilo.fondo"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/cardTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -17,7 +23,7 @@
             android:layout_marginStart="@dimen/common_pading_min"
             android:layout_marginTop="@dimen/common_pading_min"
             android:layout_marginEnd="@dimen/common_pading_min"
-            android:clickable="true"
+            style="@style/MiEstilo.cardView"
             android:focusable="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +37,7 @@
                     android:layout_marginStart="@dimen/margin_start"
                     android:contentDescription="@string/icono_bienvenida"
                     style="@style/ShapeAppearanceOverlay.Material3.Button"
-                    android:src="@mipmap/ic_channel"
+                    android:src="@drawable/icon_avatar"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -42,6 +48,7 @@
                     android:text="@string/text_bienvenido_a"
                     android:textAlignment="center"
                     android:textSize="@dimen/text_size_title_welcome"
+                    style="@style/MiEstilo.textos"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_Icono"
@@ -51,20 +58,118 @@
 
     </LinearLayout>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:navigationIcon="@drawable/ic_menu" />
+        style="@style/MiEstilo.cardView"
+        android:layout_marginTop="@dimen/margin_start"
+        android:layout_marginHorizontal="@dimen/margin_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTop">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_posGlo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/posicion_global"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_mov"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/movimientos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_posGlo">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_tra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/transferencias"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_mov">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_cambioPsw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/cambiar_contrase_a"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_tra">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_promo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/promociones"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_cambioPsw">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_cajeros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/cajeros"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_promo">
+            </com.google.android.material.button.MaterialButton>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_salir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones.menu_main"
+                android:text="@string/txt_button_exit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_cajeros">
+            </com.google.android.material.button.MaterialButton>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MiEstilo.bottomAppBar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_banco"
         android:contentDescription="@string/icono_del_banco"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Button"
+        style="@style/MiEstilo.botones.flotante"
         app:layout_anchor="@id/bottomAppBar"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

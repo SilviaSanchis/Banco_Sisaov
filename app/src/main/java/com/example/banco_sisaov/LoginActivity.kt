@@ -21,11 +21,25 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.login)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        binding.tietUsr.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus && binding.tietUsr.text!!.isEmpty()){
+                Snackbar.make(binding.root, "Debes introducir el usuario!", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+
+
+        binding.tietPsw.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus && binding.tietPsw.text!!.isEmpty()){
+                Snackbar.make(binding.root, "Debes introducir la contrasenya!", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+
 
         binding.btEnter.setOnClickListener {
             if(binding.tietUsr.text!!.isNotEmpty() && binding.tietPsw.text!!.isNotEmpty()){
@@ -35,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
             }
             else Snackbar.make(binding.root, "Debes rellenar los campos obligatorios", Snackbar.LENGTH_SHORT).show()
         }
+
 
         binding.btExit.setOnClickListener {
             finish()
