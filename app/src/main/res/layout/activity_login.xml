@@ -39,7 +39,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_usr"
         android:hint="@string/introduce_usuario"
+        app:errorEnabled="true"
+        app:errorContentDescription="@string/error_usr"
         app:endIconMode="clear_text"
         style="@style/MiEstilo.textoEditable"
         app:layout_constraintBottom_toBottomOf="@id/gl_H"
@@ -57,7 +60,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_psw"
         android:hint="@string/introduce_psw"
+        app:errorEnabled="true"
+        app:errorContentDescription="@string/error_psw"
         app:endIconMode="password_toggle"
         style="@style/MiEstilo.textoEditable"
         app:layout_constraintBottom_toBottomOf="@id/gl_H_Inferior"

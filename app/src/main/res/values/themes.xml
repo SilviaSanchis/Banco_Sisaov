@@ -58,8 +58,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="helperText">@string/obligatorio</item>
         <item name="android:textColorHint">@color/grisLetras</item>
+        <item name="helperTextTextColor">@color/grisLetras</item>
         <item name="boxStrokeColor">@color/blueCenizo</item>
-        <item name="textOutlineColor">@color/blueCenizo</item>
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 

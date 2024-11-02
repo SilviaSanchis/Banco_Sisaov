@@ -2,12 +2,12 @@
     <string name="app_name">Banco_Sisaov</string>
     <string name="icono_bienvenida">Icono bienvenida</string>
     <string name="text_bienvenido_a">Bienvenido/a </string>
-    <string name="introduce_psw">Introduce la contraseña</string>
-    <string name="introduce_usuario">Introduce el usuario</string>
+    <string name="introduce_psw">Contraseña*</string>
+    <string name="introduce_usuario">Usuario*</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="txt_button_enter">Entrar</string>
     <string name="txt_button_exit">Salir</string>
-    <string name="obligatorio">Obligatorio</string>
+    <string name="obligatorio">Obligatorio*</string>
     <string name="icono_del_banco">Icono del banco</string>
     <string name="imagen_fondo_welcome">Imagen fondo welcome</string>
     <string name="bienvenido_a_a_mi_banco">Bienvenido/a a mi banco</string>
@@ -18,4 +18,6 @@
     <string name="cambiar_contrase_a">Cambiar contraseña</string>
     <string name="promociones">Promociones</string>
     <string name="cajeros">Cajeros</string>
+    <string name="error_usr">Debe ser un DNI de 8 numeros y una letra</string>
+    <string name="error_psw">Debe contener almenos 8 caracteres</string>
 </resources>
