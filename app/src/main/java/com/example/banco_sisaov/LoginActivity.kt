@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.banco_sisaov.databinding.ActivityLoginBinding
@@ -14,6 +15,9 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AppCompatDelegate.setDefaultNightMode(
+            AppCompatDelegate.MODE_NIGHT_NO)
 
         enableEdgeToEdge()
 
@@ -27,8 +31,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tietUsr.setOnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus && binding.tietUsr.text.toString().length != 9){
-                binding.tfUsr.error = "Debe ser un DNI de 8 numeros y una letra"
+            if (!hasFocus && !validarDNI(binding.tietUsr.text.toString()) ) {
+                binding.tfUsr.error = getString(R.string.error_usr)
             }
             else{
                 binding.tfUsr.error = null
@@ -36,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tietPsw.setOnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus && binding.tietPsw.text.toString().length != 8){
-                binding.tfPsw.error = "Debe contener almenos 8 caracteres"
+            if ( !hasFocus && binding.tietPsw.text.toString().length < 8 ){
+                binding.tfPsw.error = getString(R.string.error_psw)
             }
             else {
                 binding.tfPsw.error = null
@@ -47,14 +51,30 @@ class LoginActivity : AppCompatActivity() {
         binding.btEnter.setOnClickListener {
             if(binding.tfUsr.error == null && binding.tfPsw.error == null){
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("DNI", binding.tietUsr.text.toString())
+                intent.putExtra("DNI", binding.tietUsr.text.toString().uppercase())
                 startActivity(intent)
             }
-            else Snackbar.make(binding.root, "Debes rellenar los campos obligatorios", Snackbar.LENGTH_SHORT).show()
+            else Snackbar.make(binding.root, getString(R.string.error_general), Snackbar.LENGTH_SHORT).show()
         }
 
         binding.btExit.setOnClickListener {
             finish()
         }
+    }
+
+    fun validarDNI(dni:String): Boolean {
+        val expresionDni = Regex("^[0-9]{8}[a-zA-Z]$")
+        val letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE"
+
+        if ( expresionDni.matches(dni) ) {
+            val letraCalculada = letrasDNI[dni.substring(0, 8).toInt() % 23]
+            val letraIntroducida = dni[8].uppercaseChar()
+
+            if ( letraCalculada == letraIntroducida ) return true
+
+            return false
+        }
+
+        return false
     }
 }

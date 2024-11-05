@@ -18,6 +18,14 @@
     <string name="cambiar_contrase_a">Cambiar contraseña</string>
     <string name="promociones">Promociones</string>
     <string name="cajeros">Cajeros</string>
-    <string name="error_usr">Debe ser un DNI de 8 numeros y una letra</string>
+    <string name="error_usr">DNI de 8 numeros y una letra</string>
     <string name="error_psw">Debe contener almenos 8 caracteres</string>
+    <string name="error_general">Debes rellenar los campos obligatorios</string>
+
+
+
+    <string name="dialogoAlerta_titulo">Cambiar contraseña</string>
+    <string name="dialogoAlerta_antigua">Introduce tu antigua contraseña</string>
+    <string name="dialogoAlerta_btCancelar">Cancelar</string>
+    <string name="dialogoAlerta_btGuardar">Guardar</string>
 </resources>

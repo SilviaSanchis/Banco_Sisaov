@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    style="@style/MiEstilo.fondo"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/MiEstilo.cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_pading_min"
+                    android:layout_marginTop="@dimen/common_pading_min"
+                    android:focusable="true">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_Icono"
+                            style="@style/ShapeAppearanceOverlay.Material3.Button"
+                            android:layout_width="@dimen/card_img_size"
+                            android:layout_height="@dimen/card_img_size"
+                            android:layout_marginStart="@dimen/margin_start"
+                            android:contentDescription="@string/icono_bienvenida"
+                            android:src="@drawable/icon_avatar"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txt_welcome"
+                            style="@style/MiEstilo.textos"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_bienvenido_a"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/text_size_title_welcome"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_Icono"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/MiEstilo.cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_pading_min"
+                    android:layout_marginTop="@dimen/common_pading_min"
+                    android:layout_marginBottom="100dp"><!--esto es per a que es despalse la pantalla-->
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_posGlo"
+                                style="@style/MiEstilo.botones.menu_main.landLeft"
+                                android:text="@string/posicion_global" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_mov"
+                                style="@style/MiEstilo.botones.menu_main.landRight"
+                                android:text="@string/movimientos" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_tra"
+                                style="@style/MiEstilo.botones.menu_main.landLeft"
+                                android:text="@string/transferencias" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_cambioPsw"
+                                style="@style/MiEstilo.botones.menu_main.landRight"
+                                android:text="@string/cambiar_contrase_a" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_promo"
+                                style="@style/MiEstilo.botones.menu_main.landLeft"
+                                android:text="@string/promociones" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_cajeros"
+                                style="@style/MiEstilo.botones.menu_main.landRight"
+                                android:text="@string/cajeros" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/bt_salir"
+                                style="@style/MiEstilo.botones.menu_main.landRight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_span="2"
+                                android:text="@string/txt_button_exit" />
+                        </TableRow>
+                    </TableLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        style="@style/MiEstilo.bottomAppBar"
+        android:layout_width="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/MiEstilo.botones.flotante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/icono_del_banco"
+        android:src="@drawable/ic_banco"
+        app:layout_anchor="@id/bottomAppBar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
