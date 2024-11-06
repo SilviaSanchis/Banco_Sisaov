@@ -38,8 +38,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btCambioPsw.setOnClickListener {
+        val psw = intent.getStringExtra("PSW")
 
+        binding.btCambioPsw.setOnClickListener {
+            val intent = Intent(this, ContrasenaActivity::class.java)
+            intent.putExtra("Psw", psw)
+            startActivity(intent)
         }
     }
 }

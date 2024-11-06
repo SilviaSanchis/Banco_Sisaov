@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contrasena"
+    style="@style/MiEstilo.fondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContrasenaActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cambiar_psw"
+        android:textAlignment="center"
+        style="@style/MiEstilo.textos.titulos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_psw_antigua"
+        style="@style/MiEstilo.textoEditable"
+        android:layout_marginTop="50dp"
+        android:hint="@string/psw_antigua"
+        app:endIconMode="password_toggle"
+        app:errorContentDescription="@string/error_psw_antigua"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_psw_antigua"
+            style="@style/MiEstilo.textoEditableEscrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_psw_nueva"
+        style="@style/MiEstilo.textoEditable"
+        android:layout_marginTop="32dp"
+        android:hint="@string/psw_nueva"
+        app:endIconMode="password_toggle"
+        app:errorContentDescription="@string/error_psw_antigua"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tf_psw_antigua">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_psw_nueva"
+            style="@style/MiEstilo.textoEditableEscrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_psw_repetida"
+        style="@style/MiEstilo.textoEditable"
+        android:layout_marginTop="32dp"
+        android:hint="@string/psw_repetida"
+        app:endIconMode="password_toggle"
+        app:errorContentDescription="@string/error_psw_antigua"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tf_psw_nueva">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_psw_repetida"
+            style="@style/MiEstilo.textoEditableEscrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_guardar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        style="@style/MiEstilo.botones"
+        android:textSize="@dimen/textSize_Largo"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        android:layout_marginStart="32dp"
+        android:text="@string/guardar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_Exit"
+        style="@style/MiEstilo.botones"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/cancelar"
+        android:textSize="@dimen/textSize_Largo"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

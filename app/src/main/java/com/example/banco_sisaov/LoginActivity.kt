@@ -34,24 +34,21 @@ class LoginActivity : AppCompatActivity() {
             if (!hasFocus && !validarDNI(binding.tietUsr.text.toString()) ) {
                 binding.tfUsr.error = getString(R.string.error_usr)
             }
-            else{
-                binding.tfUsr.error = null
-            }
+            else binding.tfUsr.error = null
         }
 
         binding.tietPsw.setOnFocusChangeListener { v, hasFocus ->
-            if ( !hasFocus && binding.tietPsw.text.toString().length < 8 ){
+            if ( !hasFocus && binding.tietPsw.text.toString().length < 8 || binding.tietPsw.text.toString() == "1a" ){
                 binding.tfPsw.error = getString(R.string.error_psw)
             }
-            else {
-                binding.tfPsw.error = null
-            }
+            else binding.tfPsw.error = null
         }
 
         binding.btEnter.setOnClickListener {
             if(binding.tfUsr.error == null && binding.tfPsw.error == null){
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("DNI", binding.tietUsr.text.toString().uppercase())
+                intent.putExtra("DNI", binding.tietUsr.text.toString().uppercase() )
+                intent.putExtra("PSW", binding.tietPsw.text.toString() )
                 startActivity(intent)
             }
             else Snackbar.make(binding.root, getString(R.string.error_general), Snackbar.LENGTH_SHORT).show()

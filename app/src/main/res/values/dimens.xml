@@ -6,4 +6,5 @@
     <dimen name="text_size_title_welcome">23sp</dimen>
     <dimen name="textSize_Title">35sp</dimen>
     <dimen name="textSize_botones">20sp</dimen>
+    <dimen name="textSize_Largo">18sp</dimen>
 </resources>
