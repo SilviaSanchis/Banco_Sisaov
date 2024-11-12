@@ -72,7 +72,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/margin_inner_CardView">
 
 
             <com.google.android.material.button.MaterialButton

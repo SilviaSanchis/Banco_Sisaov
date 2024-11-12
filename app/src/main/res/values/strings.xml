@@ -22,10 +22,13 @@
     <string name="guardar">Save</string>
     <string name="cancelar">Cancel</string>
     <string name="error_psw_repetida">Must be same as the new password</string>
-    <string name="error_psw">Must contain at last 8 characters</string>
+    <string name="error_psw">Must contain at last 3 characters</string>
     <string name="error_general">Must fill out required fields</string>
     <string name="psw_antigua">Old password</string>
     <string name="psw_nueva">New password</string>
     <string name="psw_repetida">Repeat password</string>
     <string name="error_guardar_contrasena">Must fill out fields to change password</string>
+    <string name="tituloGlobalPosition">Global Position</string>
+    <string name="txt_cuentas">Accounts:</string>
+    <string name="error_cliente_existencia">The client does not exist!</string>
 </resources>

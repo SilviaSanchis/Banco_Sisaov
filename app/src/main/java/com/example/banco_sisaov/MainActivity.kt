@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.ActivityMainBinding
+import com.example.banco_sisaov.pojo.Cliente
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,19 +32,24 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val dniRecibido = intent.getStringExtra("DNI")
-        binding.txtWelcome.text = binding.txtWelcome.text.toString() + " " + dniRecibido
+        //Se crea la instancia de la bd
+        val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
+
+        val cliente = intent.getSerializableExtra("Cliente") as Cliente
+        binding.txtWelcome.text = buildString {
+            append((R.string.text_bienvenido_a).toString())
+            append(" ")
+            append(cliente.getNombre())
+        }
 
         binding.btSalir.setOnClickListener {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
         }
 
-        val psw = intent.getStringExtra("PSW")
-
         binding.btCambioPsw.setOnClickListener {
             val intent = Intent(this, ContrasenaActivity::class.java)
-            intent.putExtra("Psw", psw)
+            intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }
     }

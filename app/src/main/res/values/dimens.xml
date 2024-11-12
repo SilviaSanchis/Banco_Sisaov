@@ -2,6 +2,7 @@
 <resources>
     <dimen name="card_img_size">88dp</dimen>
     <dimen name="common_pading_min">16dp</dimen>
+    <dimen name="margin_inner_CardView">10dp</dimen>
     <dimen name="margin_start">16dp</dimen>
     <dimen name="text_size_title_welcome">23sp</dimen>
     <dimen name="textSize_Title">35sp</dimen>
