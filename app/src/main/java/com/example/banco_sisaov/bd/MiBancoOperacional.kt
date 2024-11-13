@@ -15,7 +15,7 @@ class MiBancoOperacional protected constructor(context: Context?) {
     // Operacion Login: Verifica que el cliente existe y que su contraseña es correcta. Recibira un cliente
     // que solo contendrá el nif y la password.
     fun login(c: Cliente): Cliente? {
-        val aux: Cliente = miBD?.clienteDAO?.search(c) as Cliente
+        val aux: Cliente? = miBD?.clienteDAO?.search(c) as? Cliente
         return if (aux == null) {
             null
         } else if (aux.getClaveSeguridad().equals(c.getClaveSeguridad())) {

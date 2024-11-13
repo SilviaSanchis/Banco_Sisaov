@@ -2,7 +2,7 @@ package com.example.banco_sisaov
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -22,11 +22,12 @@ class LoginActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(
             AppCompatDelegate.MODE_NIGHT_NO)
 
-        //Se crea la instancia de la bd
-        val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Se crea la instancia de la bd
+        val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
 
         enableEdgeToEdge()
 
@@ -44,31 +45,57 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tietPsw.setOnFocusChangeListener { v, hasFocus ->
-            if ( !hasFocus && binding.tietPsw.text.toString().length < 3 || binding.tietPsw.text.toString() == "1a" ){
+            if ( !hasFocus && binding.tietPsw.text.toString().length < 3 ){
                 binding.tfPsw.error = getString(R.string.error_psw)
             }
             else binding.tfPsw.error = null
         }
 
+        binding.login.setOnClickListener {
+            binding.tfUsr.clearFocus()
+            binding.tfPsw.clearFocus()
+            binding.tietUsr.clearFocus()
+            binding.tietPsw.clearFocus()
+
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(binding.tietUsr.windowToken, 0)
+
+            val inputMethodManager2 = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager2.hideSoftInputFromWindow(binding.tietPsw.windowToken, 0)
+        }
+
+
         binding.btEnter.setOnClickListener {
-            if(binding.tfUsr.error == null && binding.tfPsw.error == null){
-                //En la BD
-                var cliente = Cliente()
+            if(binding.tietUsr.error == null
+                && binding.tietPsw.error == null
+                && binding.tietUsr.text!!.isNotEmpty()
+                && binding.tietUsr.text!!.isNotEmpty()
+                ){
+
+                val cliente = Cliente()
                 cliente.setNif(binding.tietUsr.text.toString().uppercase())
                 cliente.setClaveSeguridad(binding.tietPsw.text.toString())
 
                 // Logueamos al cliente
-                var clienteLogeado = mbo?.login(cliente)
+                /*val clienteLogeado = try {
+                    mbo?.login(cliente)
+                } catch (e: Exception ) {
+                    e.printStackTrace()
+                    -1
+                }*/
+                val clienteLogeado = mbo?.login(cliente) ?: -1
 
-                if(clienteLogeado != null) {
+                if(clienteLogeado == -1) {
+                    Snackbar.make(binding.root, getString(R.string.error_cliente_existencia), Snackbar.LENGTH_SHORT).show()
+                }else{
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("Cliente", clienteLogeado)
                     startActivity(intent)
-                }else{
-                    Snackbar.make(binding.root, getString(R.string.error_cliente_existencia), Snackbar.LENGTH_SHORT).show()
                 }
             }
-            else Snackbar.make(binding.root, getString(R.string.error_general), Snackbar.LENGTH_SHORT).show()
+            else {
+                Snackbar.make( binding.root, getString(R.string.error_general), Snackbar.LENGTH_SHORT).show()
+            }
         }
 
         binding.btExit.setOnClickListener {
@@ -76,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun validarDNI(dni:String): Boolean {
+    private fun validarDNI(dni:String): Boolean {
         val expresionDni = Regex("^[0-9]{8}[a-zA-Z]$")
         //val letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE"
 

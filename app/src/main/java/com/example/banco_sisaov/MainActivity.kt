@@ -42,14 +42,20 @@ class MainActivity : AppCompatActivity() {
             append(cliente.getNombre())
         }
 
-        binding.btSalir.setOnClickListener {
-            val intent = Intent(this, WelcomeActivity::class.java)
+        binding.btPosGlo.setOnClickListener {
+            val intent = Intent(this, GlobalPositionActivity::class.java)
+            intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }
 
         binding.btCambioPsw.setOnClickListener {
             val intent = Intent(this, ContrasenaActivity::class.java)
             intent.putExtra("Cliente", cliente)
+            startActivity(intent)
+        }
+
+        binding.btSalir.setOnClickListener {
+            val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
         }
     }
