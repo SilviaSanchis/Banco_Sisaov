@@ -33,4 +33,7 @@
     <string name="error_cliente_existencia">The client does not exist!</string>
     <string name="contrasenya_actualizada">Password updated!</string>
     <string name="contrasenya_no_actualizada">Password can\'t be changed!</string>
+    <string name="movements">Movements</string>
+    <string name="select_an_account">Select an account:</string>
+    <string name="importe_ActMov">Amount:</string>
 </resources>

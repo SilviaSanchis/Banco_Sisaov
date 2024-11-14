@@ -27,6 +27,7 @@
     <style name="MiEstilo.textos">
         <item name="fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/grisLetras</item>
+        <item name="android:textSize">@dimen/textSize_botones</item>
     </style>
 
     <style name="MiEstilo.textos.titulos">
@@ -49,7 +50,7 @@
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="cornerRadius">13dp</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">17sp</item>
     </style>
 
     <style name="MiEstilo.botones.menu_main.landLeft">

@@ -54,6 +54,11 @@ class Movimiento : Serializable {
         return fechaOperacion
     }
 
+    fun getFechaOperacionNormal(): String? {
+        val formateador = SimpleDateFormat("dd/MM/yyyy")
+        return formateador.format(fechaOperacion)
+    }
+
     fun getDescripcion(): String? {
         return descripcion
     }

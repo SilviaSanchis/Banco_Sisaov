@@ -36,7 +36,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tf_psw_antigua"
         style="@style/MiEstilo.textoEditable"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/margin_alTitulo"
         android:hint="@string/psw_antigua"
         app:endIconMode="password_toggle"
         app:errorContentDescription="@string/error_psw_antigua"

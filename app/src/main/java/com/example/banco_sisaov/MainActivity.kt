@@ -32,18 +32,22 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        //Se crea la instancia de la bd
-        val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
-
         val cliente = intent.getSerializableExtra("Cliente") as Cliente
+
         binding.txtWelcome.text = buildString {
-            append((R.string.text_bienvenido_a).toString())
+            append(getString(R.string.text_bienvenido_a))
             append(" ")
             append(cliente.getNombre())
         }
 
         binding.btPosGlo.setOnClickListener {
             val intent = Intent(this, GlobalPositionActivity::class.java)
+            intent.putExtra("Cliente", cliente)
+            startActivity(intent)
+        }
+
+        binding.btMov.setOnClickListener {
+            val intent = Intent(this, MovementsActivity::class.java)
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }

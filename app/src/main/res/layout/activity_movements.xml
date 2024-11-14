@@ -2,21 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/global"
+    android:id="@+id/movements"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/MiEstilo.fondo"
-    tools:context=".GlobalPositionActivity">
+    tools:context=".MovementsActivity"
+    style="@style/MiEstilo.fondo">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/tituloGlobalPosition"
-        style="@style/MiEstilo.textos.titulos"/>
+    android:id="@+id/titulo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:text="@string/movements"
+    style="@style/MiEstilo.textos.titulos"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,13 +32,22 @@
             android:id="@+id/lbl_cuenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_cuentas"
+            android:text="@string/select_an_account"
             style="@style/MiEstilo.textos"/>
 
+        <Spinner
+            android:id="@+id/sCuentas"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_inner_CardView">
+
+        </Spinner>
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rVGP"
+            android:id="@+id/rVM"
             android:layout_width="match_parent"
-            android:layout_height="518dp"
+            android:layout_height="472dp"
             android:layout_marginTop="@dimen/margin_inner_CardView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

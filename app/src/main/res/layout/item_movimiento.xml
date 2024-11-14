@@ -31,7 +31,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_numCuenta"
+                    android:id="@+id/txt_nombreMov"
                     style="@style/MiEstilo.textos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -43,7 +43,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="njdsfnewnf"
-                    android:textSize="16sp"/>
+                    android:textSize="13sp"
+                    android:textColor="@color/roig"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
