@@ -42,12 +42,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.btPosGlo.setOnClickListener {
             val intent = Intent(this, GlobalPositionActivity::class.java)
-            intent.putExtra("Cliente", cliente)
+            //intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }
 
         binding.btMov.setOnClickListener {
             val intent = Intent(this, MovementsActivity::class.java)
+            intent.putExtra("Cliente", cliente)
+            startActivity(intent)
+        }
+
+        binding.btTra.setOnClickListener {
+            val intent = Intent(this, TransferenciaActivity::class.java)
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }

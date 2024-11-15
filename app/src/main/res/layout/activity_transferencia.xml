@@ -5,6 +5,157 @@
     android:id="@+id/transferencia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TransferenciaActivity">
+    tools:context=".TransferenciaActivity"
+    style="@style/MiEstilo.fondo">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/transferencia"
+        style="@style/MiEstilo.textos.titulos"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_alTitulo"
+        android:layout_marginHorizontal="@dimen/margin_inner_CardView"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_an_account"
+            style="@style/MiEstilo.textos"/>
+
+        <Spinner
+            android:id="@+id/sCuentasOrigen"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/common_pading_min"/>
+
+        <RadioGroup
+            android:id="@+id/rbGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/common_pading_min">
+            <RadioButton
+                android:id="@+id/rbOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuenta_propia"
+                style="@style/MiEstilo.textos"
+                android:checked="true"
+                android:layout_marginEnd="@dimen/common_pading_min"/>
+            <RadioButton
+                android:id="@+id/rbOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuenta_ajena"
+                style="@style/MiEstilo.textos" />
+        </RadioGroup>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_pading_min">
+            <Spinner
+                android:id="@+id/sCuentasDestino"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_numCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                style="@style/MiEstilo.textoEditableEscrito"
+                android:hint="@string/escribe_el_num_cuenta_ajena"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="invisible"
+                android:inputType="number"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/common_pading_min">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cantidad"
+                style="@style/MiEstilo.textos"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_cantidad"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                style="@style/MiEstilo.textoEditableEscrito"
+                android:inputType="number"/>
+
+            <Spinner
+                android:id="@+id/smoneda"
+                android:layout_width="98dp"
+                android:layout_height="50dp"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbJustificante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/MiEstilo.textos"
+            android:text="@string/enviar_justificante"
+            android:layout_marginTop="@dimen/common_pading_min"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="32dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_Cancel"
+                android:layout_width="120dp"
+                android:layout_marginEnd="64dp"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones"
+                android:text="@string/txt_button_exit"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_Enviar"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                style="@style/MiEstilo.botones"
+                android:text="@string/txt_button_enter" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

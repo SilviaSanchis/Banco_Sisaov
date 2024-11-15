@@ -1,5 +1,6 @@
 package com.example.banco_sisaov
 
+import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -38,18 +39,9 @@ class ContrasenaActivity : AppCompatActivity() {
         }
 
         binding.contrasena.setOnClickListener {
-            binding.tfPswAntigua.clearFocus()
-            binding.tfPswNueva.clearFocus()
-            binding.tfPswRepetida.clearFocus()
-
-            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(binding.tfPswAntigua.windowToken, 0)
-
-            val inputMethodManager1 = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager1.hideSoftInputFromWindow(binding.tfPswNueva.windowToken, 0)
-
-            val inputMethodManager2 = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager2.hideSoftInputFromWindow(binding.tfPswRepetida.windowToken, 0)
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+            currentFocus?.clearFocus()
         }
 
         //botons

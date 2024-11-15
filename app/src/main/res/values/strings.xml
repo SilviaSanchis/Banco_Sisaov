@@ -36,4 +36,12 @@
     <string name="movements">Movements</string>
     <string name="select_an_account">Select an account:</string>
     <string name="importe_ActMov">Amount:</string>
+    <string name="transferencia">Transfers</string>
+    <string name="cuenta_propia">Own account</string>
+    <string name="cuenta_ajena">External account</string>
+    <string name="enviar_justificante">Send justify</string>
+    <string name="cantidad">Amount:</string>
+    <string name="escribe_el_num_cuenta_ajena">Write an external account number</string>
+    <string name="transferenciaOK">Transfer sent!</string>
+    <string name="transferenciaNO">Insufficient data!</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.banco_sisaov
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -52,16 +53,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.login.setOnClickListener {
-            binding.tfUsr.clearFocus()
-            binding.tfPsw.clearFocus()
-            binding.tietUsr.clearFocus()
-            binding.tietPsw.clearFocus()
-
-            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(binding.tietUsr.windowToken, 0)
-
-            val inputMethodManager2 = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager2.hideSoftInputFromWindow(binding.tietPsw.windowToken, 0)
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+            currentFocus?.clearFocus()
         }
 
 
