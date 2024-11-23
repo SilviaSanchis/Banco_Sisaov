@@ -1,9 +1,11 @@
 package com.example.banco_sisaov
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +18,7 @@ import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerMov
 import com.example.banco_sisaov.pojo.Cliente
 import com.example.banco_sisaov.pojo.Cuenta
 import com.example.banco_sisaov.pojo.Movimiento
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MovementsActivity : AppCompatActivity(), OnClickListenerMov {
 
@@ -82,11 +85,6 @@ class MovementsActivity : AppCompatActivity(), OnClickListenerMov {
                     layoutManager = linearLayoutManager
                     adapter = movementAdapter
                 }
-
-//                for (movimiento in movimientos) {
-//                    var movimientoSel = movimiento as Movimiento
-//                    Toast.makeText(this@MovementsActivity, movimientoSel.getDescripcion(), Toast.LENGTH_SHORT).show()
-//                }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -95,7 +93,30 @@ class MovementsActivity : AppCompatActivity(), OnClickListenerMov {
     }
 
     override fun OnClick(movimiento: Movimiento) {
+        val dialogo = layoutInflater.inflate(R.layout.dialog_movements, null)
+        var textViewDescripcion: String = buildString {
+            append("ID: ")
+            append(movimiento.getId())
+            append("\n")
+            append("Importe: ")
+            append(movimiento.getImporte())
+            append("\n")
+            append("Fecha de la operacion: \n")
+            append(movimiento.getFechaOperacionNormal())
+            append("\n")
+            append("Descripcion: \n")
+            append(movimiento.getDescripcion())
+        }
 
+        dialogo.findViewById<TextView>(R.id.tv_descripcion).text = textViewDescripcion
+
+        MaterialAlertDialogBuilder(this)
+            .setView(dialogo)
+            .setPositiveButton(getString(R.string.cancelar), DialogInterface.OnClickListener{ dialogo, i ->
+                dialogo.cancel()
+            })
+            .setCancelable(false)
+            .show()
     }
 
 }

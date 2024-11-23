@@ -16,7 +16,6 @@ import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.ActivityTransferenciaBinding
 import com.example.banco_sisaov.pojo.Cliente
 import com.example.banco_sisaov.pojo.Cuenta
-import com.google.android.material.snackbar.Snackbar
 
 class TransferenciaActivity : AppCompatActivity() {
 

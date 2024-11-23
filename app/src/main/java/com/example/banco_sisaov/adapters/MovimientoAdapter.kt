@@ -1,7 +1,6 @@
 package com.example.banco_sisaov.adapters
 
 import android.content.Context
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,7 @@ class MovimientoAdapter(private val movimientos: ArrayList<*>, private val liste
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movimiento: Movimiento = movimientos.get(position) as Movimiento
         with(holder) {
-            //setListener(movimiento)
+            setListener(movimiento)
             binding.txtNombreMov.text = movimiento.getDescripcion()
             binding.txtDinero.text = buildString {
                 append(movimiento.getFechaOperacionNormal())

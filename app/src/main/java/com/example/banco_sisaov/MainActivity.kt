@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.ActivityMainBinding
 import com.example.banco_sisaov.pojo.Cliente
 

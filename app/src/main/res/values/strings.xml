@@ -44,4 +44,6 @@
     <string name="escribe_el_num_cuenta_ajena">Write an external account number</string>
     <string name="transferenciaOK">Transfer sent!</string>
     <string name="transferenciaNO">Insufficient data!</string>
+    <string name="detalle_del_movimiento">Movement details</string>
+    <string name="dialogo_descripcion_movimeinto">hola</string>
 </resources>

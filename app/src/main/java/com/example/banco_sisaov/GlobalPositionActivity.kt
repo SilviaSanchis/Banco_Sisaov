@@ -1,6 +1,7 @@
 package com.example.banco_sisaov
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -49,6 +50,6 @@ class GlobalPositionActivity : AppCompatActivity(), OnClickListenerCuenta {
     }
 
     override fun onClick(cuenta: Cuenta) {
-        //Toast.makeText(this, cuenta.getNumeroCuenta(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, cuenta.getNumeroCuenta(), Toast.LENGTH_SHORT).show()
     }
 }
