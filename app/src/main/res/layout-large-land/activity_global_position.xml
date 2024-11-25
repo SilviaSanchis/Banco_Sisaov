@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/global"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    style="@style/MiEstilo.fondo">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcGPA"
+        android:name="com.example.banco_sisaov.fragments.AccountsFragment"
+        tools:layout="@layout/fragment_accounts"
+        android:layout_weight="50"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcGPM"
+        android:name="com.example.banco_sisaov.fragments.AccountsMovementsFragment"
+        android:layout_weight="50"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_accounts_movements">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+</LinearLayout>

@@ -43,6 +43,8 @@ class AccountsMovementsFragment : Fragment(), OnClickListenerMov {
         // Inflate the layout for this fragment
         binding = FragmentAccountsMovementsBinding.inflate(inflater, container, false)
 
+        binding.tvNumCuenta.text = cuenta.getNumeroCuenta()
+
         //TODO:tot lo del adapter per el recycler view
         //Se crea la instancia de la bd
         val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(context)
