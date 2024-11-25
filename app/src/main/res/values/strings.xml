@@ -46,4 +46,5 @@
     <string name="transferenciaNO">Insufficient data!</string>
     <string name="detalle_del_movimiento">Movement details</string>
     <string name="dialogo_descripcion_movimeinto">hola</string>
+    <string name="ultimos_movimientos">Lasts movements:</string>
 </resources>

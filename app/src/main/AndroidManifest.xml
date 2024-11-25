@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Banco_Sisaov"
         tools:targetApi="31">
         <activity
+            android:name=".GlobalPositionDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".TransferenciaActivity"
             android:exported="false" />
         <activity

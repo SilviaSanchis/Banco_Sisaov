@@ -11,7 +11,7 @@ import com.example.banco_sisaov.databinding.ItemCuentaBinding
 import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCuenta
 import com.example.banco_sisaov.pojo.Cuenta
 
-class CuentaAdapter(private val cuentas: ArrayList<*>, private val listener: OnClickListenerCuenta): RecyclerView.Adapter<CuentaAdapter.ViewHolder>() {
+class CuentaAdapter(private val cuentas: ArrayList<*>?, private val listener: OnClickListenerCuenta): RecyclerView.Adapter<CuentaAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemCuentaBinding.bind(view)
@@ -30,10 +30,10 @@ class CuentaAdapter(private val cuentas: ArrayList<*>, private val listener: OnC
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = cuentas.size
+    override fun getItemCount(): Int = cuentas?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cuenta: Cuenta =  cuentas.get(position) as Cuenta
+        val cuenta: Cuenta =  cuentas?.get(position) as Cuenta
         with(holder) {
             setListener(cuenta)
             binding.txtNumCuenta.text = cuenta.getNumeroCuenta()

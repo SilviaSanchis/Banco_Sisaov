@@ -11,15 +11,16 @@ import com.example.banco_sisaov.adapters.CuentaAdapter
 import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCuenta
 import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.ActivityGlobalPositionBinding
+import com.example.banco_sisaov.fragments.AccountsFragment
 import com.example.banco_sisaov.pojo.Cliente
 import com.example.banco_sisaov.pojo.Cuenta
 
-class GlobalPositionActivity : AppCompatActivity(), OnClickListenerCuenta {
+class GlobalPositionActivity : AppCompatActivity()/*, OnClickListenerCuenta*/ {
 
     private lateinit var binding: ActivityGlobalPositionBinding
 
-    private lateinit var cuentaAdapter: CuentaAdapter
-    private lateinit var linearLayoutManager: LinearLayoutManager
+//    private lateinit var cuentaAdapter: CuentaAdapter
+//    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,18 +39,18 @@ class GlobalPositionActivity : AppCompatActivity(), OnClickListenerCuenta {
         }
 
         val cliente = intent.getSerializableExtra("Cliente") as Cliente
-        val cuentas = mbo?.getCuentas(cliente) as ArrayList<*>
+//        val cuentas = mbo?.getCuentas(cliente) as ArrayList<*>
+//
+//        cuentaAdapter = CuentaAdapter(cuentas, this)
+//        linearLayoutManager = LinearLayoutManager(this)
+//
+//        binding.rVGP.apply {
+//            layoutManager = linearLayoutManager
+//            adapter = cuentaAdapter
+//        }
 
-        cuentaAdapter = CuentaAdapter(cuentas, this)
-        linearLayoutManager = LinearLayoutManager(this)
+        val frgAccounts: AccountsFragment = AccountsFragment.newInstance(cliente)
 
-        binding.rVGP.apply {
-            layoutManager = linearLayoutManager
-            adapter = cuentaAdapter
-        }
-    }
-
-    override fun onClick(cuenta: Cuenta) {
-        Toast.makeText(this, cuenta.getNumeroCuenta(), Toast.LENGTH_SHORT).show()
+        supportFragmentManager.beginTransaction().add(R.id.fragmentCuenta, frgAccounts).commit()
     }
 }

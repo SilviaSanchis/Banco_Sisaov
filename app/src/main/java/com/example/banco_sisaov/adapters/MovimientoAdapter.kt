@@ -10,7 +10,7 @@ import com.example.banco_sisaov.databinding.ItemMovimientoBinding
 import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerMov
 import com.example.banco_sisaov.pojo.Movimiento
 
-class MovimientoAdapter(private val movimientos: ArrayList<*>, private val listener: OnClickListenerMov) : RecyclerView.Adapter<MovimientoAdapter.ViewHolder>() {
+class MovimientoAdapter(private val movimientos: ArrayList<*>?, private val listener: OnClickListenerMov) : RecyclerView.Adapter<MovimientoAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemMovimientoBinding.bind(view)
@@ -29,10 +29,10 @@ class MovimientoAdapter(private val movimientos: ArrayList<*>, private val liste
         return  ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = movimientos.size
+    override fun getItemCount(): Int = movimientos?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val movimiento: Movimiento = movimientos.get(position) as Movimiento
+        val movimiento: Movimiento = movimientos?.get(position) as Movimiento
         with(holder) {
             setListener(movimiento)
             binding.txtNombreMov.text = movimiento.getDescripcion()
