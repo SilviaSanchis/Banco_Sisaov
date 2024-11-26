@@ -1,21 +1,21 @@
 package com.example.banco_sisaov
 
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.banco_sisaov.adapters.CuentaAdapter
-import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCuenta
 import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.ActivityGlobalPositionBinding
 import com.example.banco_sisaov.fragments.AccountsFragment
+import com.example.banco_sisaov.fragments.AccountsMovementsFragment
+import com.example.banco_sisaov.fragments.CuentaListener
 import com.example.banco_sisaov.pojo.Cliente
 import com.example.banco_sisaov.pojo.Cuenta
 
-class GlobalPositionActivity : AppCompatActivity()/*, OnClickListenerCuenta*/ {
+class GlobalPositionActivity : AppCompatActivity()/*, OnClickListener*/, CuentaListener {
 
     private lateinit var binding: ActivityGlobalPositionBinding
 
@@ -49,8 +49,32 @@ class GlobalPositionActivity : AppCompatActivity()/*, OnClickListenerCuenta*/ {
 //            adapter = cuentaAdapter
 //        }
 
-        val frgAccounts: AccountsFragment = AccountsFragment.newInstance(cliente)
 
-        supportFragmentManager.beginTransaction().add(R.id.fragmentCuenta, frgAccounts).commit()
+        val frgAccounts: AccountsFragment = AccountsFragment.newInstance(cliente)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentCuenta, frgAccounts).commit()
+        frgAccounts.setCuentaListener(this)
+    }
+
+    override fun onCuentaSeleccionada(c: Cuenta) {
+        if (c != null) {
+            var haySegundoFC = binding.fcGPM?.let { supportFragmentManager.findFragmentById(it.id) } != null
+
+            if (haySegundoFC) {
+                //se rellena el fragment movements de la mateixa activitat
+
+                val movementFragment = AccountsMovementsFragment.newInstance(c)
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fcGPM, movementFragment)
+                transaction.commitNow()
+            }
+            else {
+                //se llanca la nova activitat digentli la cuenta
+                val intent = Intent(this, GlobalPositionDetailsActivity::class.java).apply {
+                    putExtra("Cuenta", c)
+                }
+                startActivity(intent)
+            }
+        }
     }
 }

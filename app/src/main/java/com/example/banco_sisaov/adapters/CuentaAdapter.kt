@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 import com.example.banco_sisaov.R
 import com.example.banco_sisaov.databinding.ItemCuentaBinding
-import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCuenta
+import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListener
 import com.example.banco_sisaov.pojo.Cuenta
 
-class CuentaAdapter(private val cuentas: ArrayList<*>?, private val listener: OnClickListenerCuenta): RecyclerView.Adapter<CuentaAdapter.ViewHolder>() {
+class CuentaAdapter(private val cuentas: ArrayList<*>?, private val listener: OnClickListener): RecyclerView.Adapter<CuentaAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemCuentaBinding.bind(view)

@@ -6,25 +6,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.banco_sisaov.GlobalPositionDetailsActivity
 import com.example.banco_sisaov.adapters.CuentaAdapter
 import com.example.banco_sisaov.bd.MiBancoOperacional
 import com.example.banco_sisaov.databinding.FragmentAccountsBinding
-import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCuenta
+import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListener
 import com.example.banco_sisaov.pojo.Cliente
 import com.example.banco_sisaov.pojo.Cuenta
 
 private const val ARG_CLIENTE = "cliente"
 
-class AccountsFragment : Fragment(), OnClickListenerCuenta {
+class AccountsFragment : Fragment(), OnClickListener {
 
     private lateinit var cuentaAdapter: CuentaAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
 
     private lateinit var binding: FragmentAccountsBinding
     private lateinit var cliente: Cliente
+
+    private lateinit var listener: CuentaListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,10 +78,19 @@ class AccountsFragment : Fragment(), OnClickListenerCuenta {
             }
     }
 
+    fun setCuentaListener(listener: CuentaListener) {
+        this.listener = listener
+    }
+
     override fun onClick(cuenta: Cuenta) {
+        if (listener != null) {
+            listener.onCuentaSeleccionada(cuenta)
+        }
+
+        /*
         val intent = Intent(requireContext(), GlobalPositionDetailsActivity::class.java).apply {
             putExtra("Cuenta", cuenta)
         }
-        startActivity(intent)
+        startActivity(intent)*/
     }
 }

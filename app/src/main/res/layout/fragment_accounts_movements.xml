@@ -53,8 +53,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rVFAM"
             android:layout_width="match_parent"
-            android:layout_height="523dp"
-            android:layout_marginTop="@dimen/margin_inner_CardView" />
+            android:layout_height="520dp"
+            android:layout_marginTop="@dimen/margin_inner_CardView"
+            android:layout_marginBottom="35dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

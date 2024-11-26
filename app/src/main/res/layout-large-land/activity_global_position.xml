@@ -11,20 +11,16 @@
         android:id="@+id/fcGPA"
         android:name="com.example.banco_sisaov.fragments.AccountsFragment"
         tools:layout="@layout/fragment_accounts"
-        android:layout_weight="50"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.fragment.app.FragmentContainerView>
+        android:layout_weight="40"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcGPM"
         android:name="com.example.banco_sisaov.fragments.AccountsMovementsFragment"
-        android:layout_weight="50"
-        android:layout_width="match_parent"
+        android:layout_weight="60"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_accounts_movements">
-
-    </androidx.fragment.app.FragmentContainerView>
+        tools:layout="@layout/fragment_accounts_movements"/>
 
 </LinearLayout>
