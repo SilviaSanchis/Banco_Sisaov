@@ -58,7 +58,7 @@ class GlobalPositionActivity : AppCompatActivity()/*, OnClickListener*/, CuentaL
 
     override fun onCuentaSeleccionada(c: Cuenta) {
         if (c != null) {
-            var haySegundoFC = binding.fcGPM?.let { supportFragmentManager.findFragmentById(it.id) } != null
+            /*var haySegundoFC = binding.fcGPM?.let { supportFragmentManager.findFragmentById(it.id) } != null
 
             if (haySegundoFC) {
                 //se rellena el fragment movements de la mateixa activitat
@@ -74,7 +74,13 @@ class GlobalPositionActivity : AppCompatActivity()/*, OnClickListener*/, CuentaL
                     putExtra("Cuenta", c)
                 }
                 startActivity(intent)
-            }
+            }*/
+
+            val movementFragment = AccountsMovementsFragment.newInstance(c)
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fcGP, movementFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 }

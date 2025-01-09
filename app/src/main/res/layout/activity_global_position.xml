@@ -10,44 +10,44 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcGP"
-        android:name="com.example.banco_sisaov.fragments.AccountsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_accounts">
+        android:name="com.example.banco_sisaov.fragments.AccountsFragment"
+        />
+    <!--
 
-    </androidx.fragment.app.FragmentContainerView>
-<!--
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/tituloGlobalPosition"
-        style="@style/MiEstilo.textos.titulos"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_alTitulo"
-        android:layout_marginHorizontal="@dimen/margin_inner_CardView"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo">
-
+    tools:layout="@layout/fragment_accounts"
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/lbl_cuenta"
+            android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_cuentas"
-            style="@style/MiEstilo.textos"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/tituloGlobalPosition"
+            style="@style/MiEstilo.textos.titulos"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rVGP"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="518dp"
-            android:layout_marginTop="@dimen/margin_inner_CardView" />
-    </LinearLayout>-->
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_alTitulo"
+            android:layout_marginHorizontal="@dimen/margin_inner_CardView"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_cuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_cuentas"
+                style="@style/MiEstilo.textos"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rVGP"
+                android:layout_width="match_parent"
+                android:layout_height="518dp"
+                android:layout_marginTop="@dimen/margin_inner_CardView" />
+        </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
