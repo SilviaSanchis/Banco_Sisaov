@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.banco_sisaov.R
@@ -48,7 +49,7 @@ class AccountsMovementsFragment : Fragment(), OnClickListenerMov {
         //TODO:tot lo del adapter per el recycler view
         //Se crea la instancia de la bd
         val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(context)
-        val movimientos = mbo?.getMovimientos(cuenta as Cuenta?) as ArrayList<Movimiento>?
+        var movimientos = mbo?.getMovimientos(cuenta as Cuenta?) as ArrayList<Movimiento>?
 
         movimientoAdapter = MovimientoAdapter(movimientos, this)
         linearLayoutManager = LinearLayoutManager(context)
@@ -58,6 +59,48 @@ class AccountsMovementsFragment : Fragment(), OnClickListenerMov {
             layoutManager = linearLayoutManager
         }
 
+        binding.bottomNav.setOnItemSelectedListener {
+            it.isChecked = true
+            when (it.itemId) {
+                R.id.nav_todos -> {
+                    movimientos = mbo?.getMovimientos(cuenta as Cuenta?) as ArrayList<Movimiento>?
+                    movimientoAdapter = MovimientoAdapter(movimientos, this)
+
+                    binding.rVFAM.apply {
+                        adapter =  movimientoAdapter
+                        layoutManager = linearLayoutManager
+                    }
+                }
+                R.id.nav_tipo1 -> {
+                    movimientos = mbo?.getMovimientosTipo(cuenta as Cuenta?,0) as ArrayList<Movimiento>?
+                    movimientoAdapter = MovimientoAdapter(movimientos, this)
+
+                    binding.rVFAM.apply {
+                        adapter =  movimientoAdapter
+                        layoutManager = linearLayoutManager
+                    }
+                }
+                R.id.nav_tipo2 -> {
+                    movimientos = mbo?.getMovimientosTipo(cuenta as Cuenta?,1) as ArrayList<Movimiento>?
+                    movimientoAdapter = MovimientoAdapter(movimientos, this)
+
+                    binding.rVFAM.apply {
+                        adapter =  movimientoAdapter
+                        layoutManager = linearLayoutManager
+                    }
+                }
+                R.id.nav_tipo3 -> {
+                    movimientos = mbo?.getMovimientosTipo(cuenta as Cuenta?,2) as ArrayList<Movimiento>?
+                    movimientoAdapter = MovimientoAdapter(movimientos, this)
+
+                    binding.rVFAM.apply {
+                        adapter =  movimientoAdapter
+                        layoutManager = linearLayoutManager
+                    }
+                }
+            }
+            false
+        }
         return binding.root
     }
 
@@ -70,6 +113,7 @@ class AccountsMovementsFragment : Fragment(), OnClickListenerMov {
                 }
             }
     }
+
 
     override fun OnClick(movimiento: Movimiento) {
         val dialogo = layoutInflater.inflate(R.layout.dialog_movements, null)

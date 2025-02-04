@@ -49,13 +49,22 @@
                 android:textAlignment="textEnd"/>
         </LinearLayout>
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rVFAM"
             android:layout_width="match_parent"
-            android:layout_height="520dp"
+            android:layout_height="528dp"
             android:layout_marginTop="@dimen/margin_inner_CardView"
             android:layout_marginBottom="35dp" />
+
+
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/blueCenizo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

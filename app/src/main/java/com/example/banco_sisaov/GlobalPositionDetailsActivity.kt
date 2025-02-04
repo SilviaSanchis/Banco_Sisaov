@@ -32,6 +32,7 @@ class GlobalPositionDetailsActivity : AppCompatActivity() {
         val cuenta = intent.getSerializableExtra("Cuenta") as Cuenta
         val frgAccountsMovements: AccountsMovementsFragment = AccountsMovementsFragment.newInstance(cuenta)
 
+
         supportFragmentManager.beginTransaction().add(R.id.fCuentaMov, frgAccountsMovements).commit()
 
     }

@@ -79,7 +79,7 @@ class GlobalPositionActivity : AppCompatActivity()/*, OnClickListener*/, CuentaL
             val movementFragment = AccountsMovementsFragment.newInstance(c)
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fcGP, movementFragment)
-            transaction.addToBackStack(null)
+            //transaction.addToBackStack(null)
             transaction.commit()
         }
     }

@@ -7,7 +7,7 @@
 
     <style name="Theme.Banco_Sisaov" parent="Base.Theme.Banco_Sisaov" />
 
-    <style name="MiEstilo">
+    <style name="MiEstilo" parent="Theme.MaterialComponents.NoActionBar">
 
     </style>
 

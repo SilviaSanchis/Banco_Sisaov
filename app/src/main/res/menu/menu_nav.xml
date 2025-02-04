@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_home"
+            android:title="@string/mainHome"/>
+        <item
+            android:id="@+id/nav_pg"
+            android:icon="@drawable/ic_pg"
+            android:title="@string/posicion_global"/>
+        <item
+            android:id="@+id/nav_mov"
+            android:icon="@drawable/ic_mov"
+            android:title="@string/movements"/>
+        <item
+            android:id="@+id/nav_trans"
+            android:icon="@drawable/ic_trans"
+            android:title="@string/transferencias"/>
+        <item
+            android:id="@+id/nav_contrasena"
+            android:icon="@drawable/ic_psw"
+            android:title="@string/cambiar_psw"/>
+        <item
+            android:id="@+id/nav_prom"
+            android:icon="@drawable/ic_prom"
+            android:title="@string/promociones"/>
+        <item
+            android:id="@+id/nav_caj"
+            android:icon="@drawable/ic_cashier"
+            android:title="@string/cajeros"/>
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/ic_setting"
+            android:title="@string/configuracion"/>
+    </group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/txt_button_exit"/>
+        </menu>
+    </item>
+
+</menu>
