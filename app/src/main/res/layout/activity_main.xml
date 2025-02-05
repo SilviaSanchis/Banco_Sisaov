@@ -7,17 +7,18 @@
     style="@style/MiEstilo.fondo"
     tools:context=".MainActivity">
 
+
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/menuLateral"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
         <LinearLayout
             android:id="@+id/cardTop"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -147,6 +148,38 @@
                     </com.google.android.material.button.MaterialButton>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.bottomappbar.BottomAppBar
+                    android:id="@+id/bottomAppBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    style="@style/MiEstilo.bottomAppBar"
+                    android:layout_gravity="bottom"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_banco"
+                    android:contentDescription="@string/icono_del_banco"
+                    style="@style/MiEstilo.botones.flotante"
+                    app:layout_anchor="@id/bottomAppBar"
+                    android:layout_gravity="center"/>
+
+                <!--androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="top"
+                    android:background="@color/blueCenizo"
+                    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" /-->
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>
 
         <!--LinearLayout
@@ -170,38 +203,6 @@
                 android:layout_height="match_parent" />
 
         </LinearLayout-->
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bottomAppBar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                style="@style/MiEstilo.bottomAppBar"
-                android:layout_gravity="bottom"/>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_banco"
-                android:contentDescription="@string/icono_del_banco"
-                style="@style/MiEstilo.botones.flotante"
-                app:layout_anchor="@id/bottomAppBar"
-                android:layout_gravity="center"/>
-
-            <!--androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_gravity="top"
-                android:background="@color/blueCenizo"
-                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" /-->
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"

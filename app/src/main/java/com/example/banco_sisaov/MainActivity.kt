@@ -87,13 +87,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         // ************************ Menu lateral ***********************************
+        //Esto es per si es gasta un toolbar, ignorat en este cas per a gastar el bottom app bar
         /*setSupportActionBar(binding.toolbar)
-
-        binding.navView?.setNavigationItemSelectedListener(this)
 
         val toogle = ActionBarDrawerToggle(this, binding.menuLateral, binding.toolbar, R.string.open_nav, R.string.close_nav)
         binding.menuLateral?.addDrawerListener(toogle)
         toogle.syncState()*/
+
+        binding.navView?.setNavigationItemSelectedListener(this)
 
         binding.bottomAppBar.setNavigationOnClickListener {
             if (binding.menuLateral!!.isDrawerOpen(GravityCompat.START)) {
