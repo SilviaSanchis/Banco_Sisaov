@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -86,14 +87,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         // ************************ Menu lateral ***********************************
-        setSupportActionBar(binding.toolbar)
+        /*setSupportActionBar(binding.toolbar)
 
         binding.navView?.setNavigationItemSelectedListener(this)
 
         val toogle = ActionBarDrawerToggle(this, binding.menuLateral, binding.toolbar, R.string.open_nav, R.string.close_nav)
         binding.menuLateral?.addDrawerListener(toogle)
-        toogle.syncState()
+        toogle.syncState()*/
 
+        binding.bottomAppBar.setNavigationOnClickListener {
+            if (binding.menuLateral!!.isDrawerOpen(GravityCompat.START)) {
+                binding.menuLateral?.closeDrawer(GravityCompat.START)
+            } else {
+                binding.menuLateral?.openDrawer(GravityCompat.START)
+            }
+        }
 
 
         if(savedInstanceState == null) {
