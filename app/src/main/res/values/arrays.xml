@@ -1,0 +1,23 @@
+<resources>
+    <string-array name="lenguages">
+        <item>@string/esp</item>
+        <item>@string/eng</item>
+        <item>@string/ale</item>
+    </string-array>
+
+    <string-array name="codigoLenguages">
+        <item>ES</item>
+        <item>EN</item>
+        <item>DE</item>
+    </string-array>
+
+    <string-array name="datosOrigen">
+        <item>@string/bd</item>
+        <item>@string/sw</item>
+    </string-array>
+
+    <string-array name="codigoDatos">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

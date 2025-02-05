@@ -58,4 +58,25 @@
     <string name="nav_menu_tipo_1">Type 1</string>
     <string name="nav_menu_tipo_2">Type 2</string>
     <string name="nav_menu_tipo_3">Type 3</string>
+
+
+
+    <string name="multimedia">Media</string>
+    <string name="noEscuchar">Do not listen to music while the application is running</string>
+    <string name="siEscuchar">Listen to music while the application is running</string>
+    <string name="musica">Music</string>
+    <string name="noVideo">Do not play a video when starting the application</string>
+    <string name="siVideo">Play a video when starting the application</string>
+    <string name="videoTitle">Welcome video</string>
+    <string name="idioma">Language</string>
+    <string name="idiomaTitle">Application language</string>
+    <string name="datos">Data</string>
+    <string name="datosTitle">Data origin</string>
+
+    <string name="esp">Spanish</string>
+    <string name="eng">English</string>
+    <string name="ale">Deutsch</string>
+
+    <string name="bd">Local data base</string>
+    <string name="sw">Web server</string>
 </resources>

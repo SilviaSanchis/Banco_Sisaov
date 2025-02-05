@@ -1,0 +1,36 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/multimedia" app:icon="@drawable/ic_media">
+        <SwitchPreferenceCompat
+            app:key="reproducirMusica"
+            app:summaryOff="@string/noEscuchar"
+            app:summaryOn="@string/siEscuchar"
+            app:title="@string/musica"/>
+
+        <SwitchPreferenceCompat
+            app:key="reproducirvideo"
+            app:summaryOff="@string/noVideo"
+            app:summaryOn="@string/siVideo"
+            app:title="@string/videoTitle"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/idioma" app:icon="@drawable/ic_language">
+        <ListPreference
+            app:key="idioma"
+            app:title="@string/idiomaTitle"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="ES"
+            app:entries="@array/lenguages"
+            app:entryValues="@array/codigoLenguages"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/datos" app:icon="@drawable/ic_data">
+        <ListPreference
+            app:key="datos"
+            app:title="@string/datosTitle"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="0"
+            app:entries="@array/datosOrigen"
+            app:entryValues="@array/codigoDatos"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.banco_sisaov.Settings.SettingsActivity
 import com.example.banco_sisaov.databinding.ActivityMainBinding
 import com.example.banco_sisaov.fragments.AccountsFragment
 import com.example.banco_sisaov.fragments.AccountsMovementsFragment
@@ -119,6 +120,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_mov -> startMovimientos(cliente)
             R.id.nav_contrasena -> startPassword(cliente)
             R.id.nav_trans -> startTransaction(cliente)
+            R.id.nav_config -> startSettings()
             R.id.nav_salir -> startExit()
         }
         binding.menuLateral?.closeDrawer(GravityCompat.START)
@@ -165,6 +167,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun startPassword(cliente: Cliente) {
         val intent = Intent(this, ContrasenaActivity::class.java)
         intent.putExtra("Cliente", cliente)
+        startActivity(intent)
+    }
+
+    fun startSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
 
