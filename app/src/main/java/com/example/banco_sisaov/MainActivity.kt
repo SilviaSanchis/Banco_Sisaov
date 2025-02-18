@@ -4,21 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.banco_sisaov.Settings.SettingsActivity
 import com.example.banco_sisaov.databinding.ActivityMainBinding
-import com.example.banco_sisaov.fragments.AccountsFragment
-import com.example.banco_sisaov.fragments.AccountsMovementsFragment
-import com.example.banco_sisaov.fragments.CuentaListener
-import com.example.banco_sisaov.fragments.Main
 import com.example.banco_sisaov.pojo.Cliente
-import com.example.banco_sisaov.pojo.Cuenta
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener/*, CuentaListener*/ {
@@ -81,6 +74,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startPassword(cliente)
         }
 
+        binding.btCajeros.setOnClickListener {
+            startCajeros(cliente)
+        }
+
         binding.btSalir.setOnClickListener {
             /*val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)*/
@@ -120,6 +117,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_mov -> startMovimientos(cliente)
             R.id.nav_contrasena -> startPassword(cliente)
             R.id.nav_trans -> startTransaction(cliente)
+            R.id.nav_caj -> startCajeros(cliente)
             R.id.nav_config -> startSettings()
             R.id.nav_salir -> startExit()
         }
@@ -166,6 +164,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun startPassword(cliente: Cliente) {
         val intent = Intent(this, ContrasenaActivity::class.java)
+        intent.putExtra("Cliente", cliente)
+        startActivity(intent)
+    }
+
+    fun startCajeros(cliente: Cliente) {
+        val intent = Intent(this, AtmManagementActivity::class.java)
         intent.putExtra("Cliente", cliente)
         startActivity(intent)
     }

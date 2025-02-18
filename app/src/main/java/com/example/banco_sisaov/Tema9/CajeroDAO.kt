@@ -10,7 +10,7 @@ import androidx.room.Update
 @Dao
 interface CajeroDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(CajeroEntityList: List<CajeroEntity>)
+    fun insertAll(cajeroEntityList: List<CajeroEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addCajero(cajeroEntity: CajeroEntity)
@@ -23,4 +23,7 @@ interface CajeroDAO {
 
     @Query("SELECT * FROM cajeros")
     fun getAllCajeros(): MutableList<CajeroEntity>
+
+    @Query("SELECT * FROM cajeros WHERE cid LIKE :id")
+    fun getCajero(id: Int): CajeroEntity
 }

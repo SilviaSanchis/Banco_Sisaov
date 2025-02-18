@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AtmButtonsFragment"
+    android:id="@+id/frgAtmButtons">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/atmTitle"
+            style="@style/MiEstilo.textos.titulos"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnList"
+            android:layout_marginVertical="20dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            style="@style/MiEstilo.botones"
+            android:text="@string/btn_atm_list"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMaps"
+            android:layout_marginVertical="20dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            style="@style/MiEstilo.botones"
+            android:text="@string/btn_atm_maps"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnADD"
+            style="@style/MiEstilo.botones"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="@string/btn_atm_add"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+</FrameLayout>

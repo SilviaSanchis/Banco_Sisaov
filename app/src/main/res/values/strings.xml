@@ -60,7 +60,6 @@
     <string name="nav_menu_tipo_3">Type 3</string>
 
 
-
     <string name="multimedia">Media</string>
     <string name="noEscuchar">Do not listen to music while the application is running</string>
     <string name="siEscuchar">Listen to music while the application is running</string>
@@ -79,4 +78,16 @@
 
     <string name="bd">Local data base</string>
     <string name="sw">Web server</string>
+    <string name="atmTitle">ATM</string>
+    <string name="btn_atm_list">ATM List</string>
+    <string name="btn_atm_add">ATM Add</string>
+    <string name="btn_atm_maps">ATM Maps</string>
+    <string name="title_atm_list">ATM List</string>
+    <string name="select_atm">Select ATM:</string>
+    <string name="management_atm">Management ATM</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_longitude">Longitude</string>
+    <string name="delete">Delete</string>
+    <string name="actualizar">Update</string>
 </resources>

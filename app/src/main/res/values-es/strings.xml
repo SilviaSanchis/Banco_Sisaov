@@ -78,4 +78,15 @@
     <string name="ale">Aleman</string>
     <string name="bd">Base de datos local</string>
     <string name="sw">Servidor web</string>
+    <string name="atmTitle">ATM</string>
+    <string name="btn_atm_list">ATM List</string>
+    <string name="btn_atm_maps">ATM Maps</string>
+    <string name="title_atm_list">ATM List</string>
+    <string name="select_atm">Select ATM:</string>
+    <string name="management_atm">Management ATM</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_longitude">Longitude</string>
+    <string name="delete">Delete</string>
+    <string name="actualizar">Update</string>
 </resources>

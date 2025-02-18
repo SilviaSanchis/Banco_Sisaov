@@ -8,7 +8,7 @@ class CajeroApplication: Application() {
         lateinit var dataBase: CajerosDataBase
     }
 
-    fun OnCreate() {
+    override fun onCreate() {
         super.onCreate()
 
         dataBase = Room.databaseBuilder(

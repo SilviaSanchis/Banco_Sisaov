@@ -10,7 +10,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.banco_sisaov.Tema9.CajeroApplication
 import com.example.banco_sisaov.Tema9.CajeroEntity
+import com.example.banco_sisaov.bd.MiBD
+import com.example.banco_sisaov.bd.MiBancoOperacional
+import com.example.banco_sisaov.dao.ClienteDAO
 import com.example.banco_sisaov.databinding.ActivityWelcomeBinding
+import com.example.banco_sisaov.pojo.Cliente
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -38,13 +42,28 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        Thread{
+        ///////////////////////////////////////CREAR USUARIO ADMIN//////////////////////////////////
+        val cAdmin: Cliente = Cliente()
+        cAdmin.setNif("00000000S")
+        cAdmin.setClaveSeguridad("1111")
+        cAdmin.setNombre("ADMIN")
+        cAdmin.setApellidos("PUTOAMO")
+        cAdmin.setEmail("admin@admin.es")
+        cAdmin.setId(20)
+
+        val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
+
+        mbo?.addCliente(cAdmin)
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        //BBDD CAJEROS
+        /*Thread{
             val cajerosEntityLists : List<CajeroEntity> = listOf(
                 CajeroEntity(1, "Carrer del Clariano, 1, 46021 Valencia, Valencia, España",
                     39.47600769999999, -0.3524475000000393, ""),
                 CajeroEntity(2, "Avinguda del Cardenal Benlloch, 65, 46021 València, Valencia, España",
                     39.4710366, -0.3547525000000178, ""),
-                        CajeroEntity(3, "Av. del Port, 237, 46011 València, Valencia, España",
+                CajeroEntity(3, "Av. del Port, 237, 46011 València, Valencia, España",
                     39.46161999999999, -0.3376299999999901, ""),
                 CajeroEntity(4, "Carrer del Batxiller, 6, 46010 València, Valencia, España",
                     39.4826729, -0.3639118999999482, ""),
@@ -61,6 +80,6 @@ class WelcomeActivity : AppCompatActivity() {
             for (cajero in cajeroEntitis) {
                 Log.i("CAJERO", "Cajero: ${cajero.id} ${cajero.direccion}")
             }
-        }.start()
+        }.start()*/
     }
 }

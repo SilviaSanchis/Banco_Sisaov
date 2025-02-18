@@ -47,6 +47,10 @@ class MiBancoOperacional protected constructor(context: Context?) {
         return miBD?.movimientoDAO?.getMovimientos(c)
     }
 
+    fun addCliente(c: Cliente?): Long? {
+        return miBD?.clienteDAO?.add(c)
+    }
+
 
 
     /* Operacion transferencia: Desde una cuenta hace transferencia a otra cuenta, siempre que en la cuenta origen haya dinero disponible.
