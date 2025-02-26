@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:name=".Tema9.CajeroApplication"
         android:allowBackup="true"
@@ -13,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Banco_Sisaov"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCWwmP85LBN-VV-tA5LlU9cAd3iqhW-iq4" />
+
         <activity
             android:name=".AtmManagementActivity"
             android:exported="false" />
@@ -33,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".ContrasenaActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">
@@ -48,7 +56,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

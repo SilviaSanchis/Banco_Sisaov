@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.banco_sisaov.R
 import com.example.banco_sisaov.Tema9.CajeroEntity
 import com.example.banco_sisaov.databinding.FragmentAtmButtonsBinding
+import com.example.banco_sisaov.maps.MapsFragment
 import com.example.banco_sisaov.pojo.Cliente
 
 private const val ARG_CLIENTE = "cliente"
@@ -49,11 +50,20 @@ class AtmButtonsFragment : Fragment() {
         }
 
         binding.btnADD.setOnClickListener {
-            val cajero = CajeroEntity(direccion = "", latitud = 0.0, longitud = 0.0, zoom = "")
+            val cajero = CajeroEntity(direccion = "", latitud = 0.0, longitud = 0.0, zoom = "13f")
             val frgAtmManager: AtmManagerFragment = AtmManagerFragment.newInstance(cajero)
 
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragContainerATM, frgAtmManager)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.btnMaps.setOnClickListener {
+            val frgMaps: MapsFragment = MapsFragment.newInstance(0.0, 0.0, -1, 13f)
+
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragContainerATM, frgMaps)
             transaction.addToBackStack(null)
             transaction.commit()
         }

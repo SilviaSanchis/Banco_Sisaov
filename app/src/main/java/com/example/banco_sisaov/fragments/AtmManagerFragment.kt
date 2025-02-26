@@ -83,7 +83,7 @@ class AtmManagerFragment : Fragment() {
                         direccion = binding.tietAdress.text.toString(),
                         latitud = binding.tietLatitude.text.toString().toDouble(),
                         longitud = binding.tietLongitude.text.toString().toDouble(),
-                        zoom = "")
+                        zoom = "13f")
 
                     Thread {
                         CajeroApplication.dataBase.cajeroDao().addCajero(cajeroNuevo)

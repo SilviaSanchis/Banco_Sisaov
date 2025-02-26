@@ -15,6 +15,7 @@ import com.example.banco_sisaov.Tema9.CajeroEntity
 import com.example.banco_sisaov.adapters.CajeroAdapter
 import com.example.banco_sisaov.databinding.FragmentAtmListBinding
 import com.example.banco_sisaov.interfacesRecyclerViews.OnClickListenerCajero
+import com.example.banco_sisaov.maps.MapsFragment
 import com.example.banco_sisaov.pojo.Cliente
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
@@ -94,7 +95,15 @@ class AtmListFragment : Fragment(), OnClickListenerCajero {
             transaction.replace(R.id.fragContainerATM, frgAtmManager)
             transaction.commit()
         } else {
-            val dialogo = layoutInflater.inflate(R.layout.dialog_movements, null)
+            //crear el fragment del maps segons el caixer
+            val frgMaps: MapsFragment = MapsFragment.newInstance(cajero.latitud!!, cajero.longitud!!, cajero.id, 13f)
+
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragContainerATM, frgMaps)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+            /*val dialogo = layoutInflater.inflate(R.layout.dialog_movements, null)
             var textViewDescripcion: String = buildString {
                 append("ID: ")
                 append(cajero.id.toString())
@@ -122,7 +131,7 @@ class AtmListFragment : Fragment(), OnClickListenerCajero {
                     })
                     .setCancelable(false)
                     .show()
-            }
+            }*/
         }
     }
 }
